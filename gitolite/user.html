@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>your users' view - Gitolite</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+        <link href="css/gitolite.css" rel="stylesheet">
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Gitolite</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="index.html" class="nav-link">home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">what/why <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="overview.html" class="dropdown-item">overview</a>
+</li>
+                                    
+<li>
+    <a href="concepts.html" class="dropdown-item">concepts, conventions, terminology</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">install and setup <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="quick_install.html" class="dropdown-item">(unix/ssh experts) quick install and setup</a>
+</li>
+                                    
+<li>
+    <a href="install.html" class="dropdown-item">normal ssh mode install and setup</a>
+</li>
+                                    
+<li>
+    <a href="fool_proof_setup.html" class="dropdown-item">(if all else fails) fool-proof, step-by-step, install and setup</a>
+</li>
+                                    
+<li>
+    <a href="http.html" class="dropdown-item">HTTP mode install</a>
+</li>
+                                    
+<li>
+    <a href="migr.html" class="dropdown-item">migrating from v2</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">use <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">basic</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="basic-admin.html" class="dropdown-item">basic administration</a>
+</li>
+            
+<li>
+    <a href="conf.html" class="dropdown-item">the "conf" file (part 1)</a>
+</li>
+            
+<li>
+    <a href="conf-2.html" class="dropdown-item">the "conf" file (part 2)</a>
+</li>
+            
+<li>
+    <a href="rc.html" class="dropdown-item">the "rc" file</a>
+</li>
+            
+<li>
+    <a href="user.html" class="dropdown-item active">your users' view</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">advanced</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="git-config.html" class="dropdown-item">setting git-config values</a>
+</li>
+            
+<li>
+    <a href="options.html" class="dropdown-item">gitolite options</a>
+</li>
+            
+<li>
+    <a href="wild.html" class="dropdown-item">ad hoc user-created ("wild") repos</a>
+</li>
+            
+<li>
+    <a href="templates.html" class="dropdown-item">using templates</a>
+</li>
+            
+<li>
+    <a href="vref.html" class="dropdown-item">virtual refs (part 1)</a>
+</li>
+            
+<li>
+    <a href="vref-2.html" class="dropdown-item">virtual refs (part 2)</a>
+</li>
+            
+<li>
+    <a href="deleg.html" class="dropdown-item">delegation of admin duties</a>
+</li>
+            
+<li>
+    <a href="gitweb-daemon.html" class="dropdown-item">gitweb and git-daemon</a>
+</li>
+            
+<li>
+    <a href="mirroring.html" class="dropdown-item">mirroring</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">customise</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="non-core.html" class="dropdown-item">core and "non-core" gitolite</a>
+</li>
+            
+<li>
+    <a href="dev-notes.html" class="dropdown-item">writing your own non-core code</a>
+</li>
+            
+<li>
+    <a href="triggers.html" class="dropdown-item">gitolite triggers</a>
+</li>
+            
+<li>
+    <a href="list-non-core.html" class="dropdown-item">list of non-core programs shipped with gitolite</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="cookbook.html" class="dropdown-item">(quick! how do I...) the cookbook</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">HELP! <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="emergencies.html" class="dropdown-item">emergency!!</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">ssh</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="ssh.html" class="dropdown-item">ssh</a>
+</li>
+            
+<li>
+    <a href="glssh.html" class="dropdown-item">how gitolite uses ssh</a>
+</li>
+            
+<li>
+    <a href="sts.html" class="dropdown-item">ssh troubleshooting</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="regex.html" class="dropdown-item">regular expressions</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">other docs <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="odds-and-ends.html" class="dropdown-item">miscellaneous features</a>
+</li>
+                                    
+<li>
+    <a href="namespaces.html" class="dropdown-item">using git namespaces</a>
+</li>
+                                    
+<li>
+    <a href="locking.html" class="dropdown-item">locking binary files</a>
+</li>
+                                    
+<li>
+    <a href="testing.html" class="dropdown-item">testing gitolite</a>
+</li>
+                                    
+<li>
+    <a href="package.html" class="dropdown-item">packaging gitolite</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">more about gitolite</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="files.html" class="dropdown-item">gitolite files & directories</a>
+</li>
+            
+<li>
+    <a href="rc-33.html" class="dropdown-item">the 3.3 format rc file</a>
+</li>
+            
+<li>
+    <a href="perf.html" class="dropdown-item">performance</a>
+</li>
+            
+<li>
+    <a href="internals.html" class="dropdown-item">internals</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">contrib</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="contrib/ssh-and-http.html" class="dropdown-item">Using both ssh and http</a>
+</li>
+            
+<li>
+    <a href="contrib/putty.html" class="dropdown-item">Putty and Msysgit</a>
+</li>
+            
+<li>
+    <a href="contrib/sskm.html" class="dropdown-item">Self-service key management</a>
+</li>
+            
+<li>
+    <a href="contrib/ukm.html" class="dropdown-item">User key management</a>
+</li>
+            
+<li>
+    <a href="contrib/README-emacs.html" class="dropdown-item">Emacs major mode</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="no-way.html" class="dropdown-item">no way!</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="rc.html" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="git-config.html" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#the-users-view" class="nav-link">the users' view</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#accessing-gitolite" class="nav-link">accessing gitolite</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#the-info-command" class="nav-link">the info command</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#normal-and-wild-repos" class="nav-link">normal and wild repos</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#other-commands" class="nav-link">other commands</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#setget-additional-permissions-for-repos-you-created" class="nav-link">set/get additional permissions for repos you created</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#adding-a-description-to-repos-you-created" class="nav-link">adding a description to repos you created</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#site-local-commands" class="nav-link">"site-local" commands</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#personal-branches" class="nav-link">"personal" branches</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="the-users-view">the users' view<a class="headerlink" href="#the-users-view" title="Permanent link"></a></h1>
+<hr />
+<p>This page talks about what gitolite looks like to non-admins, and the commands
+and features available to them.</p>
+<h1 id="accessing-gitolite">accessing gitolite<a class="headerlink" href="#accessing-gitolite" title="Permanent link"></a></h1>
+<p>The most common setup is based on ssh, where your admin asks you to send him
+your public key, and uses that to setup your access.</p>
+<p>Your actual access is either a git command (like <code>git clone git@server:reponame</code>,
+or an ssh command (like <code>ssh git@server info</code>).</p>
+<p>Note that you do <em>not</em> get a shell on the server -- the whole point of
+gitolite is to prevent that!</p>
+<p><strong>Note to people who think gitolite requires or can only handle a specific
+syntax for the URL</strong>: Gitolite is designed in such a way that, unless there is
+an access violation, the <em>client</em> need not even <em>know</em> that something called
+gitolite is sitting between it and git on the server.  In particular, this
+means <em>any</em> URL syntax listed in 'man git-clone' for ssh and/or http will
+work.  The only things to note are:</p>
+<ul>
+<li>In ssh mode, you <em>must</em> use key-based authentication (i.e., passwords
+    won't work; see the two pages linked from the <a href="ssh">ssh</a> page for why).</li>
+<li>The path of the repo is what you put into the conf file (e.g., "testing",
+    and not "repositories/testing" or "/home/git/repositories/testing" or
+    such).  A good rule of thumb is to use the exact name the <code>info</code> command
+    (see below) shows you.</li>
+<li>The ".git" at the end is optional for <strong>git</strong> commands (i.e., you can use
+    "testing.git" instead of "testing" for clone, fetch, push, etc., if you
+    like) but <strong>gitolite</strong> commands in general (see below) will not like the
+    additional ".git" at the end.</li>
+</ul>
+<h1 id="the-info-command">the info command<a class="headerlink" href="#the-info-command" title="Permanent link"></a></h1>
+<p>The only command that is <em>always</em> available to every user is the <code>info</code>
+command (run <code>ssh git@host info -h</code> for help), which tells you what version of
+gitolite and git are on the server, and what repositories you have access to.
+The list of repos is very useful if you have doubts about the spelling of some
+new repo that you know was setup.</p>
+<h1 id="normal-and-wild-repos">normal and wild repos<a class="headerlink" href="#normal-and-wild-repos" title="Permanent link"></a></h1>
+<p>Gitolite has two kinds of repos.  Normal repos are specified by their full
+names in the config file.  "Wildcard" repos are specified by a regex in the
+config file.  Try the <a href="user#the-info-command"><code>info</code> command</a> and see if it shows any lines
+that look like regex patterns, (with a "C" permission).</p>
+<p>If you see any, it means you are allowed to create brand new repos whose names
+fit that regex.  Normally, you create such repos simply by cloning them or
+pushing to them -- gitolite automatically creates the repo on the server side.
+(If your site is different, your admin will tell you).</p>
+<p>When you create such a repo, your "ownership" of it (as far as gitolite is
+concerned) is automatically recorded by gitolite.</p>
+<h1 id="other-commands">other commands<a class="headerlink" href="#other-commands" title="Permanent link"></a></h1>
+<h2 id="setget-additional-permissions-for-repos-you-created">set/get additional permissions for repos you created<a class="headerlink" href="#setget-additional-permissions-for-repos-you-created" title="Permanent link"></a></h2>
+<p>The gitolite config may have several permissions lines for your repo, like so:</p>
+<pre style="color: #ffffff; background-color: #000000;">
+<span class="Statement">repo</span> pub/CREATOR/..*
+    <span class="Statement">C</span>       =   <span class="PreProc">...some list of users allowed to create repos...</span>
+    <span class="Statement">RW+</span>     =   CREATOR
+    <span class="Statement">RW</span>      =   user1 user2
+    <span class="Statement">R</span>       =   user3
+</pre>
+
+<p>If that's all it had, you really can't do much.  Any changes to access must be
+done by the administrator.  (Note that "CREATOR" is a reserved word that gets
+expanded to your userid in some way, so the admin can literally add just the
+first three lines, and <em>every</em> user listed in the second line (or <em>every
+authenticated user</em>, if you specified <code>@all</code> there) has his own personal repo
+namespace, starting with <code>pub/&lt;username&gt;/</code>).</p>
+<p>To give some flexibility to users, the admin could add rules like this:</p>
+<pre style="color: #ffffff; background-color: #000000;">
+    <span class="Statement">RW</span>      =   WRITERS
+    <span class="Statement">R</span>       =   READERS
+</pre>
+
+<p><span class="gray">(he could also add other <a href="wild#roles">roles</a> but then he
+needs to read the documentation).</span></p>
+<p>Once he does this, you can then use the <code>perms</code> command (run <code>ssh git@host perms -h</code>
+for help) to set permissions for other users by specifying which
+users are in the list of "READERS", and which in "WRITERS".</p>
+<p>If you think of READERS and WRITERS as "roles", it will help.  You can't
+change what access a role has, but you <em>can</em> say which users have that role.</p>
+<div class="admonition note">
+<p class="admonition-title">Note:</p>
+<p>There isn't a way for you to see the actual rule list unless you're given
+read access to the special 'gitolite-admin' repo.  Sorry.  The idea is
+that your admin will tell you what "roles" he added into rules for your
+repos, and what permissions those roles have.</p>
+</div>
+<h2 id="adding-a-description-to-repos-you-created">adding a description to repos you created<a class="headerlink" href="#adding-a-description-to-repos-you-created" title="Permanent link"></a></h2>
+<p>The <code>desc</code> command is extremely simple.  Run <code>ssh git@host desc -h</code> for help.</p>
+<h1 id="site-local-commands">"site-local" commands<a class="headerlink" href="#site-local-commands" title="Permanent link"></a></h1>
+<p>The main purpose of gitolite is to prevent you from getting a shell.  But
+there are commands that you often need to run on the server (i.e., cannot be
+done by pushing something to a repo).</p>
+<p>To enable this, gitolite allows the admin to setup scripts in a special
+directory that users can then run.  Gitolite comes with a set of working
+scripts that your admin may install, or may use as a starting point for his
+own, if he chooses.</p>
+<p>Think of these commands as equivalent to those in <code>COMMAND_DIR</code> in <code>man git-shell</code>.</p>
+<p>You can get a list of available commands by running <code>ssh git@host help</code>.</p>
+<h1 id="personal-branches">"personal" branches<a class="headerlink" href="#personal-branches" title="Permanent link"></a></h1>
+<p>"personal" branches are great for environments where developers need to share
+work but can't directly pull from each other (usually due to either a
+networking or authentication related reason, both common in corporate setups).</p>
+<p>Personal branches exist <strong>in a sub-tree</strong> of the <code>ref/heads/[...]</code> hierarchy.
+The syntax is</p>
+<pre style="color: #ffffff; background-color: #000000;">
+    <span class="Statement">RW+</span> <span class="Constant">personal</span><span class="PreProc">/USER/</span>  =   <span class="Identifier">@userlist</span>
+</pre>
+
+<p>where (a) the "personal" can be anything you like, but cannot be empty, (b) the
+"/USER/" part is <strong>necessary (including both slashes)</strong>, and (c) the trailing
+slash can be optionally followed by additional restrictions on the ref name.</p>
+<p>A user "alice" (if she's in the userlist) can then push any branches inside
+<code>personal/alice/</code> (i.e., she can push <code>personal/alice/foo</code> and
+<code>personal/alice/bar</code>, but NOT <code>personal/alice</code>).  As another example
+<code>personal/USER/[a-zA-Z0-9_]+$</code> would mean that alice can create
+<code>personal/alice/foo</code>, but not <code>personal/alice/foo/bar</code>, because a <code>/</code> is not
+allowed by the expression following the <code>/USER/</code>.</p>
+<p>(Background: at runtime the "USER" component will be replaced by the name of
+the invoking user.  Access is determined by the right hand side, as usual).</p>
+<p>Compared to using arbitrary branch names on the same server, this:</p>
+<ul>
+<li>Reduces namespace pollution by corralling all these ad hoc branches into
+    the "personal/" namespace.</li>
+<li>Reduces branch name collision by giving each developer her own
+    sub-hierarchy within that.</li>
+<li>Removes the need to think about access control, because a user can push
+    only to his own sub-hierarchy.</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

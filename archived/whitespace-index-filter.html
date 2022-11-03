@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns="https://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>fixup whitespace errors</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <style>
+      body        { background: #fff; text-color: #000; margin-left:  40px;   font-size:  0.9em;  font-family: arial; }
+
+      code        { font-size:    1.1em;  background:  #ddf; text-color: #000; }
+      pre         { margin-left:  2em;    background:  #ddf; text-color: #000; }
+      pre code    { font-size:    1.1em;  background:  #ddf; text-color: #000; }
+
+      td          { vertical-align: top }
+
+      .red        { color: red }
+      .blue       { color: blue }
+      .green      { color: green }
+      .gray       { color: gray }
+      .pink       { color: pink }
+
+      .box        { background-color:#e0e0e0 }
+      .bg-red     { background-color:#ffe0e0 }
+      .bg-green   { background-color:#e0ffe0 }
+      .bg-blue    { background-color:#e0e0ff }
+
+      /* couldn't resist the name! */
+      .wd40       { width: 40% !important }
+
+      .box-l      { float: left;  padding: 0px 0.5em; background-color: #e0e0e0; width:25%; margin-right: 4px; }
+      .box-r      { float: right; padding: 0px 0.5em; background-color: #e0e0e0; width:25%; margin-left:  4px; }
+
+      .fl-l       { float: left;  padding: 0px 0.5em;                                       margin-right: 4px; }
+      .fl-r       { float: right; padding: 0px 0.5em;                                       margin-left:  4px; }
+
+      .sidebar {
+          margin-left: 4px;
+          width: 25%;
+          float: right;
+          border: 4px solid #fff;
+      }
+
+  </style>
+  <style>
+      h1          { background: #ffb; text-color: #000; margin-left: -30px;   border-top:    5px  solid #ccc; }
+      h2          { background: #ffb; text-color: #000; margin-left: -20px;   border-top:    3px  solid #ddd; }
+      h3          { background: #ffb; text-color: #000; margin-left: -10px; }
+      h4          { background: #ffb; text-color: #000; }
+  </style>
+</head>
+<body>
+<p style="text-align:center">
+    <a href="index2.html">git notes main page</a>
+|
+<a href="gitolite/index.html"><strong>gitolite</strong> main page</a>
+|
+    <a href="license.html">license</a>
+</p>
+
+<p>
+<span class="red">
+    <strong>
+        IMPORTANT NOTE:
+    </strong>
+    although this page has a &quot;gitolite.com&quot; URL, this is not about gitolite.
+    That&#39;s just an artifact of &quot;sitaramc.github.com&quot; being translated to
+    &quot;gitolite.com&quot; and so ALL my git related stuff gets carried over.
+    Gitolite documentation has another <code>/gitolite</code> in the URL, so
+    you can tell.  My apologies for this confusion.
+</span>
+</p>
+<header id="title-block-header">
+<h1 class="title">fixup whitespace errors</h1>
+</header>
+<p>When you have whitespace errors in a repo and want to fix them all together, here’s what you do. Written by doener circa 2009-07-12 19:23</p>
+<p>So let’s say the following code is in <code>~/git-scripts/ws-fix.sh</code></p>
+<pre><code>#!/bin/bash
+
+# from doener (who else!)
+# to be called as an index-filter
+
+if git rev-parse --quiet --verify $GIT_COMMIT^ &gt;/dev/null
+then
+        against=$(map $(git rev-parse $GIT_COMMIT^))
+        git reset -q $against -- .
+else
+        # Initial commit: diff against an empty tree object
+        against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
+        git rm --cached -rfq --ignore-unmatch &#39;*&#39;
+fi
+
+git diff --full-index $against $GIT_COMMIT | git apply --cached --whitespace=fix</code></pre>
+<p>Notes:</p>
+<ul>
+<li><p>the <code>map</code> translates the original sha1 to the sha1 of the rewritten commit. The diff needs to go against the rewritten one, so that the patch applies without conflicts/fuzz.</p></li>
+<li><p>run this like: <code>git filter-branch --index-filter &#39;. ~/git-scripts/ws-fix.sh&#39;</code></p></li>
+<li><p>a pictorial representation of what this script does each time it is called (also from doener a few minutes later when I still couldn’t get it!):</p>
+<pre><code>Original:
+
+A---B---C---D---E
+
+Rewritten so far: (1 == rewritten A, and so on)
+
+1---2---3
+
+To create 4 we do:
+
+map D^ == map C == 3
+
+so: git diff 3 D | git apply ....</code></pre></li>
+</ul>
+<p>Other possibilities:</p>
+<p>If the whitespace problem causing conflicts is something like indentation shift, etc., and is not amenable to <code>git apply --whitespace=fix</code>, the following may work. We assume the “remote” version is the one with the unnecessary indentation changes:</p>
+<pre><code>git show :1:filename &gt; filename
+git diff -b :1:filename :3:filename | git apply
+# (might need munging; the diff header has :1: and :3: in it...)
+git merge-one-file :1:filename :2:filename $(git hash-object -w filename) filename</code></pre>
+</body>
+</html>

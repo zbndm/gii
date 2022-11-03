@@ -1,0 +1,22 @@
+#!/bin/bash
+
+git add -A .
+(
+    echo autocommit
+    echo
+
+    cd /home/sitaram/imli/tech/repos/git-notes
+    git log --format=%h\ %s -1 origin/master
+
+    cd /home/sitaram/imli/tech/repos/gitolite-doc
+    git log --format=%h\ %s -1 github/master
+) | git commit -F -
+
+[ -n "$1" ] && git commit --amend -m "$1"
+
+git status
+
+git log --stat -1
+
+read -p 'push?'
+git push -f origin

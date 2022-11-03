@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>Gitolite</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+        <link href="css/gitolite.css" rel="stylesheet">
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Gitolite</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem active">
+                                <a href="index.html" class="nav-link">home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">what/why <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="overview.html" class="dropdown-item">overview</a>
+</li>
+                                    
+<li>
+    <a href="concepts.html" class="dropdown-item">concepts, conventions, terminology</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">install and setup <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="quick_install.html" class="dropdown-item">(unix/ssh experts) quick install and setup</a>
+</li>
+                                    
+<li>
+    <a href="install.html" class="dropdown-item">normal ssh mode install and setup</a>
+</li>
+                                    
+<li>
+    <a href="fool_proof_setup.html" class="dropdown-item">(if all else fails) fool-proof, step-by-step, install and setup</a>
+</li>
+                                    
+<li>
+    <a href="http.html" class="dropdown-item">HTTP mode install</a>
+</li>
+                                    
+<li>
+    <a href="migr.html" class="dropdown-item">migrating from v2</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">use <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">basic</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="basic-admin.html" class="dropdown-item">basic administration</a>
+</li>
+            
+<li>
+    <a href="conf.html" class="dropdown-item">the "conf" file (part 1)</a>
+</li>
+            
+<li>
+    <a href="conf-2.html" class="dropdown-item">the "conf" file (part 2)</a>
+</li>
+            
+<li>
+    <a href="rc.html" class="dropdown-item">the "rc" file</a>
+</li>
+            
+<li>
+    <a href="user.html" class="dropdown-item">your users' view</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">advanced</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="git-config.html" class="dropdown-item">setting git-config values</a>
+</li>
+            
+<li>
+    <a href="options.html" class="dropdown-item">gitolite options</a>
+</li>
+            
+<li>
+    <a href="wild.html" class="dropdown-item">ad hoc user-created ("wild") repos</a>
+</li>
+            
+<li>
+    <a href="templates.html" class="dropdown-item">using templates</a>
+</li>
+            
+<li>
+    <a href="vref.html" class="dropdown-item">virtual refs (part 1)</a>
+</li>
+            
+<li>
+    <a href="vref-2.html" class="dropdown-item">virtual refs (part 2)</a>
+</li>
+            
+<li>
+    <a href="deleg.html" class="dropdown-item">delegation of admin duties</a>
+</li>
+            
+<li>
+    <a href="gitweb-daemon.html" class="dropdown-item">gitweb and git-daemon</a>
+</li>
+            
+<li>
+    <a href="mirroring.html" class="dropdown-item">mirroring</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">customise</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="non-core.html" class="dropdown-item">core and "non-core" gitolite</a>
+</li>
+            
+<li>
+    <a href="dev-notes.html" class="dropdown-item">writing your own non-core code</a>
+</li>
+            
+<li>
+    <a href="triggers.html" class="dropdown-item">gitolite triggers</a>
+</li>
+            
+<li>
+    <a href="list-non-core.html" class="dropdown-item">list of non-core programs shipped with gitolite</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="cookbook.html" class="dropdown-item">(quick! how do I...) the cookbook</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">HELP! <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="emergencies.html" class="dropdown-item">emergency!!</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">ssh</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="ssh.html" class="dropdown-item">ssh</a>
+</li>
+            
+<li>
+    <a href="glssh.html" class="dropdown-item">how gitolite uses ssh</a>
+</li>
+            
+<li>
+    <a href="sts.html" class="dropdown-item">ssh troubleshooting</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="regex.html" class="dropdown-item">regular expressions</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">other docs <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="odds-and-ends.html" class="dropdown-item">miscellaneous features</a>
+</li>
+                                    
+<li>
+    <a href="namespaces.html" class="dropdown-item">using git namespaces</a>
+</li>
+                                    
+<li>
+    <a href="locking.html" class="dropdown-item">locking binary files</a>
+</li>
+                                    
+<li>
+    <a href="testing.html" class="dropdown-item">testing gitolite</a>
+</li>
+                                    
+<li>
+    <a href="package.html" class="dropdown-item">packaging gitolite</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">more about gitolite</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="files.html" class="dropdown-item">gitolite files & directories</a>
+</li>
+            
+<li>
+    <a href="rc-33.html" class="dropdown-item">the 3.3 format rc file</a>
+</li>
+            
+<li>
+    <a href="perf.html" class="dropdown-item">performance</a>
+</li>
+            
+<li>
+    <a href="internals.html" class="dropdown-item">internals</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">contrib</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="contrib/ssh-and-http.html" class="dropdown-item">Using both ssh and http</a>
+</li>
+            
+<li>
+    <a href="contrib/putty.html" class="dropdown-item">Putty and Msysgit</a>
+</li>
+            
+<li>
+    <a href="contrib/sskm.html" class="dropdown-item">Self-service key management</a>
+</li>
+            
+<li>
+    <a href="contrib/ukm.html" class="dropdown-item">User key management</a>
+</li>
+            
+<li>
+    <a href="contrib/README-emacs.html" class="dropdown-item">Emacs major mode</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="no-way.html" class="dropdown-item">no way!</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" class="nav-link disabled">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="overview.html" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#hosting-git-repositories" class="nav-link">Hosting Git Repositories</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#installsetup" class="nav-link">install/setup</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#documentation" class="nav-link">documentation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#troubleshooting" class="nav-link">TROUBLESHOOTING</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#contactsupport" class="nav-link">contact/support</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#security-issues" class="nav-link">security issues</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#mailing-lists" class="nav-link">mailing list(s)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#irc" class="nav-link">IRC</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#license" class="nav-link">license</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="hosting-git-repositories">Hosting Git Repositories<a class="headerlink" href="#hosting-git-repositories" title="Permanent link"></a></h1>
+<hr />
+<p>Gitolite allows you to setup git hosting on a central server, with
+fine-grained access control and many more powerful features.</p>
+<h1 id="installsetup">install/setup<a class="headerlink" href="#installsetup" title="Permanent link"></a></h1>
+<p><span class="box-r">If you're installing via your package manager, make sure
+you get the right one; it's often called <code>gitolite3</code>.</span></p>
+<p>Source code is at <a href="https://github.com/sitaramc/gitolite">https://github.com/sitaramc/gitolite</a>.</p>
+<p>If your Unix-fu and ssh-fu are good, take a look at the <a href="quick_install">quick install</a>
+page.  Otherwise follow the documentation flow, skipping whatever you think
+you don't need.</p>
+<h1 id="documentation">documentation<a class="headerlink" href="#documentation" title="Permanent link"></a></h1>
+<p><span class="green box-r" style="padding: 10px"> <strong>(April 2014): There's a
+<a href="https://www.packtpub.com/gitolite-essentials/book">book on gitolite</a> out</strong>.  I've received some emails over the years
+asking where to donate for gitolite to show your appreciation, and I've always
+refused politely.  Well, if you insist... buy the book :-) </span></p>
+<p>In general, the sections (see links in the navigation bar at the top) should
+be fairly self-explanatory, and reading through the documentation as it flows
+(i.e., using the "Next" link at the top right of each page) should work fine.
+There are some forward references here and there, but you can ignore those
+links on a first pass.</p>
+<div class="admonition danger">
+<p class="admonition-title">In addition:</p>
+<p>There's a <strong><a href="fool_proof_setup">fool proof setup</a></strong> guide with detailed help showing one
+fool-proof way to install, as long as you follow instructions faithfully!</p>
+<p>Once you've installed and setup, there's the <strong><a href="cookbook">cookbook</a></strong> with recipes
+for common tasks.</p>
+</div>
+<h1 id="troubleshooting">TROUBLESHOOTING<a class="headerlink" href="#troubleshooting" title="Permanent link"></a></h1>
+<p>The <a href="emergencies">emergencies</a> page helps with all sorts of install/setup issues,
+recovering from lost keys and other self-inflicted wounds, lists some common
+(and some uncommon!) errors and non-standard configs that may trip you up.</p>
+<h1 id="contactsupport">contact/support<a class="headerlink" href="#contactsupport" title="Permanent link"></a></h1>
+<h2 id="security-issues">security issues<a class="headerlink" href="#security-issues" title="Permanent link"></a></h2>
+<p><span class="red">If you think you found a possible <strong>security issue</strong>, please email me
+(<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#105;&#116;&#97;&#114;&#97;&#109;&#99;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#115;&#105;&#116;&#97;&#114;&#97;&#109;&#99;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>) directly.</span></p>
+<h2 id="mailing-lists">mailing list(s)<a class="headerlink" href="#mailing-lists" title="Permanent link"></a></h2>
+<p>For all other communications, please use the mailing list.  This has some
+advantages over sending direct to me (if I'm not available, someone else might
+respond; someone else may have additional info that I may not have thought of,
+or experiences to share; the issue becomes searchable for future reference;
+and finally, it keeps me honest!)</p>
+<p><strong>NOTE</strong>: The first email from a new member is held until I can clear it;
+subsequent emails from the same email address do not get held up.</p>
+<p>Mailing list for support and general discussion:</p>
+<ul>
+<li>Subscribe: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#103;&#105;&#116;&#111;&#108;&#105;&#116;&#101;&#43;&#115;&#117;&#98;&#115;&#99;&#114;&#105;&#98;&#101;&#64;&#103;&#111;&#111;&#103;&#108;&#101;&#103;&#114;&#111;&#117;&#112;&#115;&#46;&#99;&#111;&#109;">&#103;&#105;&#116;&#111;&#108;&#105;&#116;&#101;&#43;&#115;&#117;&#98;&#115;&#99;&#114;&#105;&#98;&#101;&#64;&#103;&#111;&#111;&#103;&#108;&#101;&#103;&#114;&#111;&#117;&#112;&#115;&#46;&#99;&#111;&#109;</a></li>
+<li>Post: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#103;&#105;&#116;&#111;&#108;&#105;&#116;&#101;&#64;&#103;&#111;&#111;&#103;&#108;&#101;&#103;&#114;&#111;&#117;&#112;&#115;&#46;&#99;&#111;&#109;">&#103;&#105;&#116;&#111;&#108;&#105;&#116;&#101;&#64;&#103;&#111;&#111;&#103;&#108;&#101;&#103;&#114;&#111;&#117;&#112;&#115;&#46;&#99;&#111;&#109;</a></li>
+</ul>
+<p>(If you're unwilling to join the mailing list, you can still send me direct
+mail if it's something simple, obvious, or quick.  But if the issue needs
+multiple mails and/or some discussion, I prefer the mailing list.)</p>
+<p>There's also a low traffic, one-way, mailing list for release and security
+announcements:</p>
+<ul>
+<li>Subscribe: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#103;&#105;&#116;&#111;&#108;&#105;&#116;&#101;&#45;&#97;&#110;&#110;&#111;&#117;&#110;&#99;&#101;&#43;&#115;&#117;&#98;&#115;&#99;&#114;&#105;&#98;&#101;&#64;&#103;&#111;&#111;&#103;&#108;&#101;&#103;&#114;&#111;&#117;&#112;&#115;&#46;&#99;&#111;&#109;">&#103;&#105;&#116;&#111;&#108;&#105;&#116;&#101;&#45;&#97;&#110;&#110;&#111;&#117;&#110;&#99;&#101;&#43;&#115;&#117;&#98;&#115;&#99;&#114;&#105;&#98;&#101;&#64;&#103;&#111;&#111;&#103;&#108;&#101;&#103;&#114;&#111;&#117;&#112;&#115;&#46;&#99;&#111;&#109;</a></li>
+</ul>
+<p>If you wish to send me code, please see the file called CONTRIBUTING in the
+source distribution.</p>
+<h2 id="irc">IRC<a class="headerlink" href="#irc" title="Permanent link"></a></h2>
+<p>Our IRC channel is <code>#gitolite</code> on libera.chat.  I live in India (UTC+0530 time
+zone), but there are a few regulars (<em>thanks, guys, you know who you are!</em>)
+from other times zones.  That said, it's not heavy traffic and you may have to
+wait a while for an answer, depending on the time of day and day of week.</p>
+<p>There are also many gitolite-knowledgeable people on the git channel <code>#git</code>.</p>
+<h1 id="license">license<a class="headerlink" href="#license" title="Permanent link"></a></h1>
+<p>The gitolite software is copyright Sitaram Chamarty and is licensed under the
+GPL v2; please see the file called COPYING in the source distribution.</p>
+<p>This <strong>documentation</strong>, which is maintained separately from the main gitolite
+source code, is copyright Sitaram Chamarty and is provided under a <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative
+Commons Attribution-NonCommercial-ShareAlike 3.0 Unported
+License</a>.</p>
+<p>However, certain parts are contributed by others who may have chosen other
+licenses; their names and license will be mentioned in the respective files.</p>
+<p>Documentation for a software product will naturally contain code examples.  I
+believe that the principle of fair use should cover use of those snippets; see
+especially factors 3 and 4 in the list of factors
+<a href="https://en.wikipedia.org/wiki/Fair_use#Fair_use_under_United_States_law">here</a>.</p>
+<p>If you're not convinced that it would be fair use, then you may consider those
+code snippets, as well as associated "comments" if any, to be under the GPLv2
+license.  Licensing is about intent, and the intent of these examples is that
+you use them wherever and however you can use gitolite itself.</p>
+<div class="admonition note">
+<p class="admonition-title">Note:</p>
+<p>GIT is a trademark of Software Freedom Conservancy and my use of
+"Gitolite" is under license.</p>
+</div></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.4.1
+Build Date UTC : 2022-10-21 04:18:14.661808+00:00
+-->

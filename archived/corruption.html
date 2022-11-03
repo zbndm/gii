@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="https://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>corruption in a git repository</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <style>
+      body        { background: #fff; text-color: #000; margin-left:  40px;   font-size:  0.9em;  font-family: arial; }
+
+      code        { font-size:    1.1em;  background:  #ddf; text-color: #000; }
+      pre         { margin-left:  2em;    background:  #ddf; text-color: #000; }
+      pre code    { font-size:    1.1em;  background:  #ddf; text-color: #000; }
+
+      td          { vertical-align: top }
+
+      .red        { color: red }
+      .blue       { color: blue }
+      .green      { color: green }
+      .gray       { color: gray }
+      .pink       { color: pink }
+
+      .box        { background-color:#e0e0e0 }
+      .bg-red     { background-color:#ffe0e0 }
+      .bg-green   { background-color:#e0ffe0 }
+      .bg-blue    { background-color:#e0e0ff }
+
+      /* couldn't resist the name! */
+      .wd40       { width: 40% !important }
+
+      .box-l      { float: left;  padding: 0px 0.5em; background-color: #e0e0e0; width:25%; margin-right: 4px; }
+      .box-r      { float: right; padding: 0px 0.5em; background-color: #e0e0e0; width:25%; margin-left:  4px; }
+
+      .fl-l       { float: left;  padding: 0px 0.5em;                                       margin-right: 4px; }
+      .fl-r       { float: right; padding: 0px 0.5em;                                       margin-left:  4px; }
+
+      .sidebar {
+          margin-left: 4px;
+          width: 25%;
+          float: right;
+          border: 4px solid #fff;
+      }
+
+  </style>
+  <style>
+      h1          { background: #ffb; text-color: #000; margin-left: -30px;   border-top:    5px  solid #ccc; }
+      h2          { background: #ffb; text-color: #000; margin-left: -20px;   border-top:    3px  solid #ddd; }
+      h3          { background: #ffb; text-color: #000; margin-left: -10px; }
+      h4          { background: #ffb; text-color: #000; }
+  </style>
+</head>
+<body>
+<p style="text-align:center">
+    <a href="index2.html">git notes main page</a>
+|
+<a href="gitolite/index.html"><strong>gitolite</strong> main page</a>
+|
+    <a href="license.html">license</a>
+</p>
+
+<p>
+<span class="red">
+    <strong>
+        IMPORTANT NOTE:
+    </strong>
+    although this page has a &quot;gitolite.com&quot; URL, this is not about gitolite.
+    That&#39;s just an artifact of &quot;sitaramc.github.com&quot; being translated to
+    &quot;gitolite.com&quot; and so ALL my git related stuff gets carried over.
+    Gitolite documentation has another <code>/gitolite</code> in the URL, so
+    you can tell.  My apologies for this confusion.
+</span>
+</p>
+<header id="title-block-header">
+<h1 class="title">corruption in a git repository</h1>
+</header>
+<p>For now, this is just loosely formatted text, maybe like a series of case studies.</p>
+<p>IMPORTANT NOTE: <code>git fsck --full</code> is needed to reliably find repo corruption</p>
+<h1 data-number="1" id="case-1-kolkata-korruption-2-missing-tree-objects"><span class="header-section-number">1</span> case 1: Kolkata Korruption – 2 missing tree objects</h1>
+<p>what finally worked:</p>
+<pre><code># on some good repo
+TYPE=$(git cat-file -t $BADOBJSHA)
+git cat-file $TYPE $BADOBJSHA &gt; file
+
+# copy file to bad repo
+git hash-object -t $TYPE -w --stdin &lt; file</code></pre>
+<p>However, this may not always work; it is not certain that hash-object will <em>replace</em> a corrupted object (as opposed to creating a <em>missing</em> object). So try that, <em>as well as</em> this (generic object):</p>
+<pre><code># on some good repo
+echo $object | git pack-objects --revs pack
+# will create two files named pack-*.{idx,pack}</code></pre>
+<p>confirm:</p>
+<pre><code>git verify-pack -v pack-*.idx | grep $object
+# should also contain all sub objects</code></pre>
+<p>copy:</p>
+<pre><code>pack* to $bad_repo/[.git?]/objects/pack</code></pre>
+<p>repack:</p>
+<pre><code>repack -a -d</code></pre>
+<p>(you could also do “unpack-objects” I guess)</p>
+</body>
+</html>
